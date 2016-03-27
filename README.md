@@ -13,7 +13,7 @@ const shape = [
   { x: 50, y: 30 },
   { x: 50, y: 70, curve: { type: 'arc', rx: 20, ry: 20 }},
   { x: 50, y: 30, curve: { type: 'arc', rx: 20, ry: 20 }},
-]
+];
 ```
 
 ## Specification
@@ -71,12 +71,19 @@ be `0`.
 }}
 ```
 
-## Point manipulation
+## Installation
+
+```
+npm install points
+```
+
+## Usage
 
 ### add
 
 ```js
-const newShape = add( shape, 25 )
+import { add } from 'points';
+const newShape = add( shape, 25 );
 ```
 
 Takes an existing shape array as the first argument, and the
@@ -87,7 +94,8 @@ array.
 ### remove
 
 ```js
-const newShape = remove( shape )
+import { remove } from 'points';
+const newShape = remove( shape );
 ```
 
 Takes an existing shape array as the only argument, and
@@ -97,7 +105,8 @@ new shape array.
 ### cubify
 
 ```js
-const newShape = cubify( shape )
+import { cubify } from 'points';
+const newShape = cubify( shape );
 ```
 
 Takes an existing shape array as the only argument, and
@@ -109,7 +118,8 @@ points. Returns a new shape array.
 **Coming soon**.
 
 ```js
-const newShape = reverse( shape )
+import { reverse } from 'points';
+const newShape = reverse( shape );
 ```
 
 Takes an existing shape array as the only argument, and
@@ -120,10 +130,55 @@ reverses the order of the points. Returns a new shape array.
 **Coming soon**.
 
 ```js
-const newShape = moveIndex( shape, 3 )
+import { moveIndex } from 'points';
+const newShape = moveIndex( shape, 3 );
 ```
 
 Takes an existing shape array as the first argument, and the
 desired number of points to shift the index as the second
 argument (this can be a negative integer too). Returns a new
 shape array.
+
+## CommonJS
+
+This is how you get to the good stuff if you're using
+`require`.
+
+```js
+const Points = require( 'points' );
+const add = Points.add;
+const remove = Points.remove;
+const cubify = Points.cubify;
+const reverse = Points.reverse;
+const moveIndex = Points.moveIndex;
+```
+
+## UMD
+
+And if you just want to smash in a Javascript file you're
+also covered. Drop this in place ...
+
+[https://npmcdn.com/points@1.0.0/dist/points.min.js](https://npmcdn.com/points@1.0.0/dist/points.min.js)
+
+Then access it on the `Points` global variable.
+
+```js
+const add = Points.add;
+const remove = Points.remove;
+const cubify = Points.cubify;
+const reverse = Points.reverse;
+const moveIndex = Points.moveIndex;
+```
+
+## Help make this better
+
+[Issues](https://github.com/colinmeinke/points/issues/new)
+and pull requests gratefully received!
+
+I'm also on twitter [@colinmeinke](https://twitter.com/colinmeinke).
+
+Thanks :star2:
+
+## License
+
+[ISC](./LICENSE.md).
