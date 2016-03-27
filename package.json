@@ -20,7 +20,7 @@
       "path": "node_modules/cz-conventional-changelog"
     }
   },
-  "description": "A specification for storing shape data in Javascript. Includes functions for adding, removing and reordering points",
+  "description": "A specification for storing shape data in Javascript. Includes functions for adding, removing, reordering and converting points",
   "devDependencies": {
     "babel-cli": "^6.6.5",
     "babel-core": "^6.7.4",
