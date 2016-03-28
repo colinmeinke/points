@@ -4,7 +4,7 @@ A specification for storing shape data in Javascript. Includes
 functions for adding, removing, reordering and converting
 points.
 
-**2kb gzipped. No dependencies.**
+**2.1kb gzipped. No dependencies.**
 
 ## Example shape
 
@@ -114,8 +114,6 @@ converts any arc or quadratic bezier points to cubic bezier
 points. Returns a new shape array.
 
 ### reverse
-
-**Coming soon**.
 
 ```js
 import { reverse } from 'points';
