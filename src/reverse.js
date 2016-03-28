@@ -1,3 +1,5 @@
+import cubify from './cubify';
+
 const reverse = shape => {
   let c;
 
