@@ -154,7 +154,7 @@ const moveIndex = Points.moveIndex;
 And if you just want to smash in a Javascript file you're
 also covered. Drop this in place ...
 
-[https://npmcdn.com/points@1.2.0/dist/points.min.js](https://npmcdn.com/points@1.2.0/dist/points.min.js)
+[https://npmcdn.com/points@1.3.0/dist/points.min.js](https://npmcdn.com/points@1.3.0/dist/points.min.js)
 
 Then access it on the `Points` global variable.
 
