@@ -84,24 +84,18 @@ describe( 'add', () => {
     expect( add( points, 8 )).toEqual( expectedPoints );
   });
 
-  it( 'should only add points between straight lines', () => {
+  it( 'should add correct curve midpoint', () => {
     const points = [
       { x: 0, y: 0 },
-      { x: 50, y: 25, curve: { type: 'arc', rx: 1, ry: 1 }},
-      { x: 100, y: 100 },
+      { x: 100, y: 0, curve: { type: 'cubic', x1: 0, y1: 30, x2: 100, y2: 30 }},
     ];
 
     const expectedPoints = [
       { x: 0, y: 0 },
-      { x: 50, y: 25, curve: { type: 'arc', rx: 1, ry: 1 }},
-      { x: 56.25, y: 34.375 },
-      { x: 62.5, y: 43.75 },
-      { x: 68.75, y: 53.125 },
-      { x: 75, y: 62.5 },
-      { x: 87.5, y: 81.25 },
-      { x: 100, y: 100 },
+      { x: 50, y: 22.5, curve: { type: 'cubic', x1: 0, y1: 15, x2: 25, y2: 22.5 }},
+      { x: 100, y: 0, curve: { type: 'cubic', x1: 75, y1: 22.5, x2: 100, y2: 15 }},
     ];
 
-    expect( add( points, 8 )).toEqual( expectedPoints );
+    expect( add( points, 3 )).toEqual( expectedPoints );
   });
 });

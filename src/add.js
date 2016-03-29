@@ -1,52 +1,53 @@
-const straightMidPoint = ( a, b ) => {
-  const x = a.x === b.x ? 0 : Math.abs( b.x - a.x );
-  const y = a.y === b.y ? 0 : Math.abs( b.y - a.y );
+import cubify from './cubify';
 
-  return {
-    x: x === 0 ? a.x : ( a.x < b.x ? a.x + x / 2 : a.x - x / 2 ),
-    y: y === 0 ? a.y : ( a.y < b.y ? a.y + y / 2 : a.y - y / 2 ),
-  };
+const middle = ( a, b ) => {
+  const c = a === b ? 0 : Math.abs( b - a );
+  return c === 0 ? a : ( a < b ? a + c / 2 : a - c / 2 );
 };
 
-const midPoint = ( a, b ) => {
-  if ( !b.curve ) {
-    return straightMidPoint( a, b );
-  }
+const basicPoints = ( a, b ) => [{
+  x: middle( a.x, b.x ),
+  y: middle( a.y, b.y ),
+}, b ];
 
-  return false;
+const curvePoints = ( a, b ) => {
+  const { x1, y1, x2, y2 } = b.curve;
+
+  const A = { x: a.x, y: a.y };
+  const B = { x: x1, y: y1 };
+  const C = { x: x2, y: y2 };
+  const D = { x: b.x, y: b.y };
+  const E = { x: middle( A.x, B.x ), y: middle( A.y, B.y )};
+  const F = { x: middle( B.x, C.x ), y: middle( B.y, C.y )};
+  const G = { x: middle( C.x, D.x ), y: middle( C.y, D.y )};
+  const H = { x: middle( E.x, F.x ), y: middle( E.y, F.y )};
+  const J = { x: middle( F.x, G.x ), y: middle( F.y, G.y )};
+  const K = { x: middle( H.x, J.x ), y: middle( H.y, J.y )};
+
+  return [
+    { x: K.x, y: K.y, curve: { type: 'cubic', x1: E.x, y1: E.y, x2: H.x, y2: H.y }},
+    { x: D.x, y: D.y, curve: { type: 'cubic', x1: J.x, y1: J.y, x2: G.x, y2: G.y }},
+  ];
 };
 
-const add = ( shape, pointsRequired ) => {
+const points = ( a, b ) => b.curve ? curvePoints( a, b ) : basicPoints( a, b );
+
+const addPoints = ( shape, pointsRequired ) => {
   const s = [ ...shape ];
 
-  for ( let i = 1; i < s.length; ) {
-    const m = midPoint( s[ i - 1 ], s[ i ]);
+  for ( let i = 1; i < s.length; i += 2 ) {
+    const [ a, b ] = points( s[ i - 1 ], s[ i ]);
 
-    if ( m ) {
-      s.splice( i, 0, m );
+    s.splice( i, 1, a, b );
 
-      if ( s.length === pointsRequired ) {
-        return s;
-      }
-
-      i += 2;
-    } else {
-      i++;
+    if ( s.length >= pointsRequired ) {
+      return s;
     }
   }
 
-  if ( s.length === shape.length ) {
-    const additionalPoints = pointsRequired - s.length;
-    const newPoint = { x: s[ 0 ].x, y: s[ 0 ].y };
+  return addPoints( s, pointsRequired );
+};
 
-    for ( let i = 0; i < additionalPoints; i++ ) {
-      s.unshift( newPoint );
-    }
-
-    return s;
-  }
-
-  return add( s, pointsRequired );
-}
+const add = ( shape, pointsRequired ) => addPoints( cubify( shape ), pointsRequired );
 
 export default add;
