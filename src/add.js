@@ -36,13 +36,13 @@ const addPoints = ( shape, pointsRequired ) => {
   const s = [ ...shape ];
 
   for ( let i = 1; i < s.length; i += 2 ) {
-    const [ a, b ] = points( s[ i - 1 ], s[ i ]);
-
-    s.splice( i, 1, a, b );
-
     if ( s.length >= pointsRequired ) {
       return s;
     }
+
+    const [ a, b ] = points( s[ i - 1 ], s[ i ]);
+
+    s.splice( i, 1, a, b );
   }
 
   return addPoints( s, pointsRequired );
