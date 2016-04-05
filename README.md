@@ -1,10 +1,10 @@
 # Points
 
 A specification for storing shape data in Javascript. Includes
-functions for adding, removing, reordering and converting
-points.
+functions for adding, removing, reordering, converting and
+amending points.
 
-**2.4kb gzipped. No dependencies.**
+**2.5kb gzipped. No dependencies.**
 
 ## Example shape
 
@@ -134,6 +134,17 @@ Takes an existing shape array as the first argument, and the
 desired number of points to shift the index as the second
 argument (this can be a negative integer too). Returns a new
 shape array.
+
+### offset
+
+```js
+import { offset } from 'points';
+const newShape = offset( shape, 10, 20 );
+```
+
+Takes an existing shape array as the first argument, the
+horizontal offset as the second argument, and the vertical
+offset as the third argument. Returns a new shape array.
 
 ## CommonJS
 
