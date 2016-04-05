@@ -1,4 +1,4 @@
-const offset = ( points, x = 0, y = 0 ) => points.map( point => {
+const offset = ( shape, x = 0, y = 0 ) => shape.map( point => {
   const p = { ...point };
 
   p.x += x;

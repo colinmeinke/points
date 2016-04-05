@@ -2,9 +2,9 @@
 
 A specification for storing shape data in Javascript. Includes
 functions for adding, removing, reordering, converting and
-amending points.
+manipulating points.
 
-**2.5kb gzipped. No dependencies.**
+**3kb gzipped. No dependencies.**
 
 ## Example shape
 
@@ -91,16 +91,17 @@ total number of desired points as the second argument. Adds
 points without changing the shape and returns a new shape
 array.
 
-### remove
+### boundingBox
 
 ```js
-import { remove } from 'points';
-const newShape = remove( shape );
+import { boundingBox } from 'points';
+const { top, right, bottom, left, center } = boundingBox( shape );
 ```
 
-Takes an existing shape array as the only argument, and
-removes any points that do not affect the shape. Returns a
-new shape array.
+Takes an existing shape array, or an array of shape arrays,
+as the only argument and returns an object of bounding
+coordinates including a `center` property containing the
+`x`, `y` values.
 
 ### cubify
 
@@ -112,16 +113,6 @@ const newShape = cubify( shape );
 Takes an existing shape array as the only argument, and
 converts any arc or quadratic bezier points to cubic bezier
 points. Returns a new shape array.
-
-### reverse
-
-```js
-import { reverse } from 'points';
-const newShape = reverse( shape );
-```
-
-Takes an existing shape array as the only argument, and
-reverses the order of the points. Returns a new shape array.
 
 ### moveIndex
 
@@ -146,6 +137,49 @@ Takes an existing shape array as the first argument, the
 horizontal offset as the second argument, and the vertical
 offset as the third argument. Returns a new shape array.
 
+### remove
+
+```js
+import { remove } from 'points';
+const newShape = remove( shape );
+```
+
+Takes an existing shape array as the only argument, and
+removes any points that do not affect the shape. Returns a
+new shape array.
+
+### reverse
+
+```js
+import { reverse } from 'points';
+const newShape = reverse( shape );
+```
+
+Takes an existing shape array as the only argument, and
+reverses the order of the points. Returns a new shape array.
+
+### scale
+
+```js
+import { scale } from 'points';
+const newShape = scale( shape, 0.5, 'topLeft' );
+```
+
+Takes an existing shape array, or an array of shape arrays,
+as the first argument. Takes the scale factor as the second
+argument and an anchor point as the third argument.
+
+The anchor point can take any of the following strings:
+
+- center (default)
+- topLeft
+- topRight
+- bottomRight
+- bottomLeft
+
+Returns a new shape array or an array of shape arrays,
+depending on input.
+
 ## CommonJS
 
 This is how you get to the good stuff if you're using
@@ -154,10 +188,13 @@ This is how you get to the good stuff if you're using
 ```js
 const Points = require( 'points' );
 const add = Points.add;
-const remove = Points.remove;
+const boundingBox = Points.boundingBox;
 const cubify = Points.cubify;
-const reverse = Points.reverse;
 const moveIndex = Points.moveIndex;
+const offset = Points.offset;
+const remove = Points.remove;
+const reverse = Points.reverse;
+const scale = Points.scale;
 ```
 
 ## UMD
@@ -171,10 +208,13 @@ Then access it on the `Points` global variable.
 
 ```js
 const add = Points.add;
-const remove = Points.remove;
+const boundingBox = Points.boundingBox;
 const cubify = Points.cubify;
-const reverse = Points.reverse;
 const moveIndex = Points.moveIndex;
+const offset = Points.offset;
+const remove = Points.remove;
+const reverse = Points.reverse;
+const scale = Points.scale;
 ```
 
 ## Help make this better
