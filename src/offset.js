@@ -5,6 +5,8 @@ const offset = ( points, x = 0, y = 0 ) => points.map( point => {
   p.y += y;
 
   if ( p.curve ) {
+    p.curve = { ...p.curve };
+
     if ( p.curve.type === 'quadratic' || p.curve.type === 'cubic' ) {
       p.curve.x1 += x;
       p.curve.y1 += y;
