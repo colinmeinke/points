@@ -6,7 +6,7 @@ const moveIndex = ( shape, offset ) => {
 
   if ( c.x === l.x && c.y === l.y ) {
     return [
-      { x: shape[ o ].x, y: shape[ o ].y },
+      { x: shape[ o ].x, y: shape[ o ].y, moveTo: true },
       ...shape.splice( o + 1 ),
       ...shape.splice( 1, o ),
     ];

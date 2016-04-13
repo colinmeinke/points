@@ -10,13 +10,7 @@ describe( 'offset', () => {
       { x: -10, y: -100 },
     ];
 
-    const expectedPoints = [
-      { x: 0, y: 0, moveTo: true },
-      { x: 50, y: 25 },
-      { x: -10, y: -100 },
-    ];
-
-    expect( offset( points )).toEqual( expectedPoints );
+    expect( offset( points )).toEqual( points );
   });
 
   it( 'should add correct offset', () => {

@@ -5,13 +5,13 @@ import remove from '../src/remove';
 describe( 'remove', () => {
   it( 'should remove midpoint', () => {
     const points = [
-      { x: 0, y: 0 },
+      { x: 0, y: 0, moveTo: true },
       { x: 25, y: 0 },
       { x: 50, y: 0 },
     ];
 
     const expectedPoints = [
-      { x: 0, y: 0 },
+      { x: 0, y: 0, moveTo: true },
       { x: 50, y: 0 },
     ];
 
@@ -20,14 +20,14 @@ describe( 'remove', () => {
 
   it( 'should remove multiple midpoints', () => {
     const points = [
-      { x: 1, y: 1 },
+      { x: 1, y: 1, moveTo: true },
       { x: 2, y: 2 },
       { x: 3, y: 3 },
       { x: 4, y: 4 },
     ];
 
     const expectedPoints = [
-      { x: 1, y: 1 },
+      { x: 1, y: 1, moveTo: true },
       { x: 4, y: 4 },
     ];
 
@@ -36,7 +36,7 @@ describe( 'remove', () => {
 
   it( 'should not remove midpoint if curve', () => {
     const points = [
-      { x: 0, y: 0 },
+      { x: 0, y: 0, moveTo: true },
       { x: 25, y: 0, curve: { type: 'arc', rx: 1, ry: 1 }},
       { x: 50, y: 0 },
     ];
@@ -46,14 +46,14 @@ describe( 'remove', () => {
 
   it( 'should remove duplicate point', () => {
     const points = [
-      { x: 0, y: 10 },
+      { x: 0, y: 10, moveTo: true },
       { x: 25, y: 0 },
       { x: 25, y: 0 },
       { x: 50, y: 50 },
     ];
 
     const expectedPoints = [
-      { x: 0, y: 10 },
+      { x: 0, y: 10, moveTo: true },
       { x: 25, y: 0 },
       { x: 50, y: 50 },
     ];
@@ -63,7 +63,7 @@ describe( 'remove', () => {
 
   it( 'should remove multiple duplicate points', () => {
     const points = [
-      { x: 0, y: 10 },
+      { x: 0, y: 10, moveTo: true },
       { x: 25, y: 0 },
       { x: 25, y: 0 },
       { x: 25, y: 0 },
@@ -71,7 +71,7 @@ describe( 'remove', () => {
     ];
 
     const expectedPoints = [
-      { x: 0, y: 10 },
+      { x: 0, y: 10, moveTo: true },
       { x: 25, y: 0 },
       { x: 50, y: 50 },
     ];
@@ -81,7 +81,7 @@ describe( 'remove', () => {
 
   it( 'should not remove duplicate point if curve', () => {
     const points = [
-      { x: 0, y: 10 },
+      { x: 0, y: 10, moveTo: true },
       { x: 25, y: 0 },
       { x: 25, y: 0, curve: { type: 'arc', rx: 1, ry: 1 }},
       { x: 50, y: 50 },
