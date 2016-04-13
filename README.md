@@ -20,6 +20,15 @@ const shape = [
 
 A shape is an array of 2 or more point objects.
 
+A line should be drawn between each point in a shape.
+
+Adding a `moveTo` property to a point indicates that
+a line should *not* be drawn to that point from the
+previous.
+
+The first point in a shape must include the `moveTo`
+property.
+
 ### Point types
 
 Each point is somewhere on an `x`, `y` plane. Therefore, at
