@@ -91,6 +91,30 @@ describe( 'moveIndex', () => {
     expect( moveIndex( points, -13 )).toEqual( expectedPoints );
   });
 
+  it( 'should handle moving index when multiple moveTo points', () => {
+    const points = [
+      { x: 0, y: 0, moveTo: true },
+      { x: 0, y: 100 },
+      { x: 100, y: 0, moveTo: true },
+      { x: 100, y: 100 },
+      { x: 200, y: 0, moveTo: true },
+      { x: 200, y: 100 },
+      { x: 0, y: 0 },
+    ];
+
+    const expectedPoints = [
+      { x: 100, y: 0, moveTo: true },
+      { x: 100, y: 100 },
+      { x: 200, y: 0, moveTo: true },
+      { x: 200, y: 100 },
+      { x: 0, y: 0 },
+      { x: 0, y: 100 },
+      { x: 100, y: 0, moveTo: true },
+    ];
+
+    expect( moveIndex( points, 2 )).toEqual( expectedPoints );
+  });
+
   it( 'should handle moving index to curve point', () => {
     const points = [
       { x: 0, y: 0, moveTo: true },
