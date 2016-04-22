@@ -4,7 +4,7 @@ const getShapeArray = s => isShapeArray( s ) ? s : [ s ];
 
 const applyFuncToShapes = ( s, f ) => {
   if ( isShapeArray( s )) {
-    return s.map( shape => f( s ));
+    return s.map( shape => f( shape ));
   }
 
   return f( s );
