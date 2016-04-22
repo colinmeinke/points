@@ -9,19 +9,19 @@ const boundingBox = s => {
   const shapes = getShapeArray( s );
 
   shapes.forEach( shape => shape.forEach(({ x, y }) => {
-    if ( !bottom || y > bottom ) {
+    if ( typeof bottom !== 'number' || y > bottom ) {
       bottom = y;
     }
 
-    if ( !left || x < left ) {
+    if ( typeof left !== 'number' || x < left ) {
       left = x;
     }
 
-    if ( !right || x > right ) {
+    if ( typeof right !== 'number' || x > right ) {
       right = x;
     }
 
-    if ( !top || y < top ) {
+    if ( typeof top !== 'number' || y < top ) {
       top = y;
     }
   }));
