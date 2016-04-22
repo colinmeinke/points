@@ -1,12 +1,14 @@
-const boundingBox = shape => {
+import { getShapeArray } from './helpers';
+
+const boundingBox = s => {
   let bottom;
   let left;
   let right;
   let top;
 
-  const shapes = Array.isArray( shape[ 0 ]) ? shape : [ shape ];
+  const shapes = getShapeArray( s );
 
-  shapes.forEach( shp => shp.forEach(({ x, y }) => {
+  shapes.forEach( shape => shape.forEach(({ x, y }) => {
     if ( !bottom || y > bottom ) {
       bottom = y;
     }
