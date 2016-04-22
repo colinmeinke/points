@@ -1,4 +1,5 @@
 import boundingBox from './boundingBox';
+import { applyFuncToShapes } from './helpers';
 
 const scalePoint = ( point, scaleFactor, anchorX, anchorY ) => {
   const p = { ...point };
@@ -31,8 +32,8 @@ const scalePoint = ( point, scaleFactor, anchorX, anchorY ) => {
   return p;
 };
 
-const scale = ( shape, scaleFactor, anchor = 'center' ) => {
-  const { bottom, center, left, right, top } = boundingBox( shape );
+const scale = ( s, scaleFactor, anchor = 'center' ) => {
+  const { bottom, center, left, right, top } = boundingBox( s );
 
   let anchorX = center.x;
   let anchorY = center.y;
@@ -56,15 +57,9 @@ const scale = ( shape, scaleFactor, anchor = 'center' ) => {
       break;
   }
 
-  if ( Array.isArray( shape[ 0 ])) {
-    return shape.map( shp => shp.map( point => {
-      return scalePoint( point, scaleFactor, anchorX, anchorY );
-    }));
-  } else {
-    return shape.map( point => {
-      return scalePoint( point, scaleFactor, anchorX, anchorY );
-    });
-  }
+  return applyFuncToShapes( s, shape => shape.map( point => {
+    return scalePoint( point, scaleFactor, anchorX, anchorY );
+  }));
 };
 
 export default scale;
