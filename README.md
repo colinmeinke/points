@@ -4,7 +4,7 @@ A specification for storing shape data in Javascript. Includes
 functions for adding, removing, reordering, converting and
 manipulating points.
 
-**3kb gzipped. No dependencies.**
+**3.1kb gzipped. No dependencies.**
 
 ## Example shape
 
