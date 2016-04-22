@@ -4,33 +4,33 @@ import offset from '../src/offset';
 
 describe( 'offset', () => {
   it( 'should correctly handle missing offsets', () => {
-    const points = [
+    const shape = [
       { x: 0, y: 0, moveTo: true },
       { x: 50, y: 25 },
       { x: -10, y: -100 },
     ];
 
-    expect( offset( points )).toEqual( points );
+    expect( offset( shape )).toEqual( shape );
   });
 
   it( 'should add correct offset', () => {
-    const points = [
+    const shape = [
       { x: 0, y: 0, moveTo: true },
       { x: 50, y: 25 },
       { x: -10, y: -100 },
     ];
 
-    const expectedPoints = [
+    const expectedShapes = [
       { x: 10, y: -5, moveTo: true },
       { x: 60, y: 20 },
       { x: 0, y: -105 },
     ];
 
-    expect( offset( points, 10, -5 )).toEqual( expectedPoints );
+    expect( offset( shape, 10, -5 )).toEqual( expectedShapes );
   });
 
   it( 'should add correct offsets to arc curve', () => {
-    const points = [
+    const shape = [
       { x: 0, y: 0, moveTo: true },
       { x: 80, y: 35, curve: {
         type: 'arc',
@@ -43,7 +43,7 @@ describe( 'offset', () => {
       { x: -10, y: -100 },
     ];
 
-    const expectedPoints = [
+    const expectedShapes = [
       { x: 10, y: -5, moveTo: true },
       { x: 90, y: 30, curve: {
         type: 'arc',
@@ -56,11 +56,11 @@ describe( 'offset', () => {
       { x: 0, y: -105 },
     ];
 
-    expect( offset( points, 10, -5 )).toEqual( expectedPoints );
+    expect( offset( shape, 10, -5 )).toEqual( expectedShapes );
   });
 
   it( 'should add correct offsets to quadratic curve', () => {
-    const points = [
+    const shape = [
       { x: 0, y: 0, moveTo: true },
       { x: 100, y: 200, curve: {
         type: 'quadratic',
@@ -70,7 +70,7 @@ describe( 'offset', () => {
       { x: -10, y: -100 },
     ];
 
-    const expectedPoints = [
+    const expectedShapes = [
       { x: 10, y: -5, moveTo: true },
       { x: 110, y: 195, curve: {
         type: 'quadratic',
@@ -80,11 +80,11 @@ describe( 'offset', () => {
       { x: 0, y: -105 },
     ];
 
-    expect( offset( points, 10, -5 )).toEqual( expectedPoints );
+    expect( offset( shape, 10, -5 )).toEqual( expectedShapes );
   });
 
   it( 'should add correct offsets to cubic curve', () => {
-    const points = [
+    const shape = [
       { x: 0, y: 0, moveTo: true },
       { x: 5, y: 10, curve: {
         type: 'cubic',
@@ -96,7 +96,7 @@ describe( 'offset', () => {
       { x: -10, y: -100 },
     ];
 
-    const expectedPoints = [
+    const expectedShapes = [
       { x: 10, y: -5, moveTo: true },
       { x: 15, y: 5, curve: {
         type: 'cubic',
@@ -108,6 +108,6 @@ describe( 'offset', () => {
       { x: 0, y: -105 },
     ];
 
-    expect( offset( points, 10, -5 )).toEqual( expectedPoints );
+    expect( offset( shape, 10, -5 )).toEqual( expectedShapes );
   });
 });

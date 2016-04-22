@@ -4,7 +4,7 @@ import boundingBox from '../src/boundingBox';
 
 describe( 'boundingBox', () => {
   it( 'should return correct coordinates from shape', () => {
-    const points = [
+    const shape = [
       { x: 0, y: 0, moveTo: true },
       { x: 100, y: 0 },
       { x: 100, y: 100 },
@@ -20,11 +20,11 @@ describe( 'boundingBox', () => {
       top: 0,
     };
 
-    expect( boundingBox( points )).toEqual( expectedCoordinates );
+    expect( boundingBox( shape )).toEqual( expectedCoordinates );
   });
 
   it( 'should return correct coordinates from shape array', () => {
-    const points = [
+    const shapes = [
       [
         { x: 0, y: 0, moveTo: true },
         { x: 100, y: 0 },
@@ -49,6 +49,6 @@ describe( 'boundingBox', () => {
       top: 0,
     };
 
-    expect( boundingBox( points )).toEqual( expectedCoordinates );
+    expect( boundingBox( shapes )).toEqual( expectedCoordinates );
   });
 });

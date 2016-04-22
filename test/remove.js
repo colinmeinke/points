@@ -4,65 +4,65 @@ import remove from '../src/remove';
 
 describe( 'remove', () => {
   it( 'should remove midpoint', () => {
-    const points = [
+    const shape = [
       { x: 0, y: 0, moveTo: true },
       { x: 25, y: 0 },
       { x: 50, y: 0 },
     ];
 
-    const expectedPoints = [
+    const expectedShapes = [
       { x: 0, y: 0, moveTo: true },
       { x: 50, y: 0 },
     ];
 
-    expect( remove( points )).toEqual( expectedPoints );
+    expect( remove( shape )).toEqual( expectedShapes );
   });
 
   it( 'should remove multiple midpoints', () => {
-    const points = [
+    const shape = [
       { x: 1, y: 1, moveTo: true },
       { x: 2, y: 2 },
       { x: 3, y: 3 },
       { x: 4, y: 4 },
     ];
 
-    const expectedPoints = [
+    const expectedShapes = [
       { x: 1, y: 1, moveTo: true },
       { x: 4, y: 4 },
     ];
 
-    expect( remove( points )).toEqual( expectedPoints );
+    expect( remove( shape )).toEqual( expectedShapes );
   });
 
   it( 'should not remove midpoint if curve', () => {
-    const points = [
+    const shape = [
       { x: 0, y: 0, moveTo: true },
       { x: 25, y: 0, curve: { type: 'arc', rx: 1, ry: 1 }},
       { x: 50, y: 0 },
     ];
 
-    expect( remove( points )).toEqual( points );
+    expect( remove( shape )).toEqual( shape );
   });
 
   it( 'should remove duplicate point', () => {
-    const points = [
+    const shape = [
       { x: 0, y: 10, moveTo: true },
       { x: 25, y: 0 },
       { x: 25, y: 0 },
       { x: 50, y: 50 },
     ];
 
-    const expectedPoints = [
+    const expectedShapes = [
       { x: 0, y: 10, moveTo: true },
       { x: 25, y: 0 },
       { x: 50, y: 50 },
     ];
 
-    expect( remove( points )).toEqual( expectedPoints );
+    expect( remove( shape )).toEqual( expectedShapes );
   });
 
   it( 'should remove multiple duplicate points', () => {
-    const points = [
+    const shape = [
       { x: 0, y: 10, moveTo: true },
       { x: 25, y: 0 },
       { x: 25, y: 0 },
@@ -70,23 +70,23 @@ describe( 'remove', () => {
       { x: 50, y: 50 },
     ];
 
-    const expectedPoints = [
+    const expectedShapes = [
       { x: 0, y: 10, moveTo: true },
       { x: 25, y: 0 },
       { x: 50, y: 50 },
     ];
 
-    expect( remove( points )).toEqual( expectedPoints );
+    expect( remove( shape )).toEqual( expectedShapes );
   });
 
   it( 'should not remove duplicate point if curve', () => {
-    const points = [
+    const shape = [
       { x: 0, y: 10, moveTo: true },
       { x: 25, y: 0 },
       { x: 25, y: 0, curve: { type: 'arc', rx: 1, ry: 1 }},
       { x: 50, y: 50 },
     ];
 
-    expect( remove( points )).toEqual( points );
+    expect( remove( shape )).toEqual( shape );
   });
 });
