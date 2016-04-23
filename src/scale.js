@@ -57,9 +57,9 @@ const scale = ( s, scaleFactor, anchor = 'center' ) => {
       break;
   }
 
-  return applyFuncToShapes( s, shape => shape.map( point => {
+  return applyFuncToShapes( shape => shape.map( point => {
     return scalePoint( point, scaleFactor, anchorX, anchorY );
-  }));
+  }), s );
 };
 
 export default scale;

@@ -43,6 +43,6 @@ const cubifyShape = shape => {
   return s;
 };
 
-const cubify = s => applyFuncToShapes( s, cubifyShape );
+const cubify = s => applyFuncToShapes( cubifyShape, s );
 
 export default cubify;

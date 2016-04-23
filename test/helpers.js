@@ -75,7 +75,7 @@ describe( 'applyFuncToShapes', () => {
       ],
     ];
 
-    expect( applyFuncToShapes( shape, func )).toEqual( expectedShape );
+    expect( applyFuncToShapes( func, shape )).toEqual( expectedShape );
   });
 
   it( 'should apply function to shapes array', () => {
@@ -91,6 +91,34 @@ describe( 'applyFuncToShapes', () => {
       { x: 3, y: 3 },
     ];
 
-    expect( applyFuncToShapes( shapes, func )).toEqual( expectedShapes );
+    expect( applyFuncToShapes( func, shapes )).toEqual( expectedShapes );
+  });
+
+  it( 'should apply function with arguments', () => {
+    const shape = [
+      [
+        { x: 1, y: 1, moveTo: true },
+        { x: 2, y: 2 },
+      ],
+      [
+        { x: 3, y: 3, moveTo: true },
+        { x: 4, y: 4 },
+      ],
+    ];
+
+    const func = ( s, n ) => s.map( p => ({ ...p, x: p.x + n, y: p.y + n }));
+
+    const expectedShape = [
+      [
+        { x: 6, y: 6, moveTo: true },
+        { x: 7, y: 7 },
+      ],
+      [
+        { x: 8, y: 8, moveTo: true },
+        { x: 9, y: 9 },
+      ],
+    ];
+
+    expect( applyFuncToShapes( func, shape, 5 )).toEqual( expectedShape );
   });
 });

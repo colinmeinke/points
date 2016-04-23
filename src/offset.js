@@ -1,4 +1,6 @@
-const offset = ( shape, x = 0, y = 0 ) => shape.map( point => {
+import { applyFuncToShapes } from './helpers';
+
+const offsetPoints = ( shape, x, y ) => shape.map( point => {
   const p = { ...point };
 
   p.x += x;
@@ -20,5 +22,7 @@ const offset = ( shape, x = 0, y = 0 ) => shape.map( point => {
 
   return p;
 });
+
+const offset = ( s, x = 0, y = 0 ) => applyFuncToShapes( offsetPoints, s, x, y );
 
 export default offset;

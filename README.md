@@ -4,7 +4,7 @@ A specification for storing shape data in Javascript. Includes
 functions for adding, removing, reordering, converting and
 manipulating points.
 
-**3.1kb gzipped. No dependencies.**
+**3.2kb gzipped. No dependencies.**
 
 ## Example shape
 
@@ -145,9 +145,12 @@ import { offset } from 'points';
 const newShape = offset( shape, 10, 20 );
 ```
 
-Takes an existing shape array as the first argument, the
-horizontal offset as the second argument, and the vertical
-offset as the third argument. Returns a new shape array.
+Takes an existing shape array, or an array of shape arrays,
+as the first argument, the horizontal offset as the second
+argument, and the vertical offset as the third argument.
+
+Returns a new shape array or an array of shape arrays,
+depending on input.
 
 ### remove
 
@@ -221,7 +224,7 @@ const scale = Points.scale;
 And if you just want to smash in a Javascript file you're
 also covered. Drop this in place ...
 
-[https://npmcdn.com/points@1.6.0/dist/points.min.js](https://npmcdn.com/points@1.6.0/dist/points.min.js)
+[https://npmcdn.com/points@1.7.0/dist/points.min.js](https://npmcdn.com/points@1.7.0/dist/points.min.js)
 
 Then access it on the `Points` global variable.
 

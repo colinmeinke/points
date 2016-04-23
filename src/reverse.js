@@ -17,6 +17,6 @@ const reversePoints = shape => {
   });
 };
 
-const reverse = s => applyFuncToShapes( cubify( s ), reversePoints );
+const reverse = s => applyFuncToShapes( reversePoints, cubify( s ));
 
 export default reverse;

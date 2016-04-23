@@ -54,6 +54,6 @@ const removePoints = shape => {
   return s;
 };
 
-const remove = s => applyFuncToShapes( s, removePoints );
+const remove = s => applyFuncToShapes( removePoints, s );
 
 export default remove;
