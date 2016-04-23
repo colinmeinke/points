@@ -1,9 +1,9 @@
 import cubify from './cubify';
 
-const reverse = shape => {
+const reversePoints = shape => {
   let c;
 
-  return cubify( shape ).reverse().map(({ x, y, curve }) => {
+  return shape.reverse().map(({ x, y, curve }) => {
     const point = { x, y };
 
     if ( c ) {
@@ -15,6 +15,8 @@ const reverse = shape => {
 
     return point;
   });
-}
+};
+
+const reverse = s => applyFuncToShapes( cubify( s ), reversePoints );
 
 export default reverse;

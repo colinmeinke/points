@@ -170,8 +170,12 @@ import { reverse } from 'points';
 const newShape = reverse( shape );
 ```
 
-Takes an existing shape array as the only argument, and
-reverses the order of the points. Returns a new shape array.
+Takes an existing shape array, or an array of shape
+arrays, as the only argument, and reverses the order of
+the points.
+
+Returns a new shape array or an array of shape arrays,
+depending on input.
 
 ### scale
 
