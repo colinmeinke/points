@@ -119,9 +119,12 @@ import { cubify } from 'points';
 const newShape = cubify( shape );
 ```
 
-Takes an existing shape array as the only argument, and
-converts any arc or quadratic bezier points to cubic bezier
-points. Returns a new shape array.
+Takes an existing shape array as the only argument, or an
+array of shape arrays, and converts any arc or quadratic
+bezier points to cubic bezier points.
+
+Returns a new shape array or an array of shape arrays,
+depending on input.
 
 ### moveIndex
 
@@ -211,7 +214,7 @@ const scale = Points.scale;
 And if you just want to smash in a Javascript file you're
 also covered. Drop this in place ...
 
-[https://npmcdn.com/points@1.5.1/dist/points.min.js](https://npmcdn.com/points@1.5.1/dist/points.min.js)
+[https://npmcdn.com/points@1.6.1/dist/points.min.js](https://npmcdn.com/points@1.6.1/dist/points.min.js)
 
 Then access it on the `Points` global variable.
 

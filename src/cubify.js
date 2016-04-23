@@ -1,6 +1,7 @@
 import arcToBezier from './arcToBezier';
+import { applyFuncToShapes } from './helpers';
 
-const cubify = shape => {
+const cubifyShape = shape => {
   const s = [];
 
   for ( let i = 0, l = shape.length; i < l; i++ ) {
@@ -41,5 +42,7 @@ const cubify = shape => {
 
   return s;
 };
+
+const cubify = s => applyFuncToShapes( s, cubifyShape );
 
 export default cubify;
