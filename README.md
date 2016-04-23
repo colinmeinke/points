@@ -156,9 +156,12 @@ import { remove } from 'points';
 const newShape = remove( shape );
 ```
 
-Takes an existing shape array as the only argument, and
-removes any points that do not affect the shape. Returns a
-new shape array.
+Takes an existing shape array, or an array of shape
+arrays, as the only argument, and removes any points that
+do not affect the shape.
+
+Returns a new shape array or an array of shape arrays,
+depending on input.
 
 ### reverse
 

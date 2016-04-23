@@ -1,3 +1,5 @@
+import { applyFuncToShapes } from './helpers';
+
 const isBetween = ( a, b, c ) => {
   if ( b.curve || c.curve ) {
     return false;
@@ -36,7 +38,7 @@ const isBetween = ( a, b, c ) => {
   return true;
 };
 
-const remove = shape => {
+const removePoints = shape => {
   const s = [];
 
   for ( let i = 0, l = shape.length; i < l; i++ ) {
@@ -51,5 +53,7 @@ const remove = shape => {
 
   return s;
 };
+
+const remove = s => applyFuncToShapes( s, removePoints );
 
 export default remove;
