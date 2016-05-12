@@ -1,4 +1,5 @@
 import cubify from './cubify';
+import { applyFuncToShapes } from './helpers';
 
 const reversePoints = shape => {
   let c;
