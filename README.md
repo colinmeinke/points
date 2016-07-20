@@ -4,7 +4,7 @@ A specification for storing shape data in Javascript. Includes
 functions for adding, removing, reordering, converting and
 manipulating points.
 
-**3.2kb gzipped. No dependencies.**
+**3.6kb gzipped. No dependencies.**
 
 ## Example shape
 
@@ -126,6 +126,19 @@ bezier points to cubic bezier points.
 Returns a new shape array or an array of shape arrays,
 depending on input.
 
+### length
+
+```js
+import { length } from 'points';
+const l = length( shape, accuracy );
+```
+
+Takes an existing shape array as the first argument. The
+optional second argument takes a number above 0 but below
+180. This second argument is the accuracy (in degrees) used
+to calculate when a curve is *straight enough* to be
+considered a straight line. Returns the length of the shape.
+
 ### moveIndex
 
 ```js
@@ -224,7 +237,7 @@ const scale = Points.scale;
 And if you just want to smash in a Javascript file you're
 also covered. Drop this in place ...
 
-[https://npmcdn.com/points@1.7.1/dist/points.min.js](https://npmcdn.com/points@1.7.1/dist/points.min.js)
+[https://npmcdn.com/points/dist/points.min.js](https://npmcdn.com/points/dist/points.min.js)
 
 Then access it on the `Points` global variable.
 

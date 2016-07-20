@@ -50,4 +50,5 @@ const addPoints = ( shape, pointsRequired ) => {
 
 const add = ( shape, pointsRequired ) => addPoints( cubify( shape ), pointsRequired );
 
+export { curvePoints };
 export default add;
