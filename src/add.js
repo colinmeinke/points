@@ -1,13 +1,9 @@
 import cubify from './cubify';
-
-const middle = ( a, b ) => {
-  const c = a === b ? 0 : Math.abs( b - a );
-  return c === 0 ? a : ( a < b ? a + c / 2 : a - c / 2 );
-};
+import { numberAtInterval } from './helpers';
 
 const basicPoints = ( a, b ) => [{
-  x: middle( a.x, b.x ),
-  y: middle( a.y, b.y ),
+  x: numberAtInterval( a.x, b.x, 0.5 ),
+  y: numberAtInterval( a.y, b.y, 0.5 ),
 }, b ];
 
 const curvePoints = ( a, b ) => {
@@ -17,12 +13,12 @@ const curvePoints = ( a, b ) => {
   const B = { x: x1, y: y1 };
   const C = { x: x2, y: y2 };
   const D = { x: b.x, y: b.y };
-  const E = { x: middle( A.x, B.x ), y: middle( A.y, B.y )};
-  const F = { x: middle( B.x, C.x ), y: middle( B.y, C.y )};
-  const G = { x: middle( C.x, D.x ), y: middle( C.y, D.y )};
-  const H = { x: middle( E.x, F.x ), y: middle( E.y, F.y )};
-  const J = { x: middle( F.x, G.x ), y: middle( F.y, G.y )};
-  const K = { x: middle( H.x, J.x ), y: middle( H.y, J.y )};
+  const E = { x: numberAtInterval( A.x, B.x, 0.5 ), y: numberAtInterval( A.y, B.y, 0.5 )};
+  const F = { x: numberAtInterval( B.x, C.x, 0.5 ), y: numberAtInterval( B.y, C.y, 0.5 )};
+  const G = { x: numberAtInterval( C.x, D.x, 0.5 ), y: numberAtInterval( C.y, D.y, 0.5 )};
+  const H = { x: numberAtInterval( E.x, F.x, 0.5 ), y: numberAtInterval( E.y, F.y, 0.5 )};
+  const J = { x: numberAtInterval( F.x, G.x, 0.5 ), y: numberAtInterval( F.y, G.y, 0.5 )};
+  const K = { x: numberAtInterval( H.x, J.x, 0.5 ), y: numberAtInterval( H.y, J.y, 0.5 )};
 
   return [
     { x: K.x, y: K.y, curve: { type: 'cubic', x1: E.x, y1: E.y, x2: H.x, y2: H.y }},

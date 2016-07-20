@@ -4,7 +4,7 @@ A specification for storing shape data in Javascript. Includes
 functions for adding, removing, reordering, converting and
 manipulating points.
 
-**3.6kb gzipped. No dependencies.**
+**3.7kb gzipped. No dependencies.**
 
 ## Example shape
 
@@ -130,14 +130,15 @@ depending on input.
 
 ```js
 import { length } from 'points';
-const l = length( shape, accuracy );
+const value = length( shape, 1 );
 ```
 
 Takes an existing shape array as the first argument. The
 optional second argument takes a number above 0 but below
 180. This second argument is the accuracy (in degrees) used
 to calculate when a curve is *straight enough* to be
-considered a straight line. Returns the length of the shape.
+considered a straight line when working out shape length.
+Returns the length of the shape.
 
 ### moveIndex
 
@@ -164,6 +165,22 @@ argument, and the vertical offset as the third argument.
 
 Returns a new shape array or an array of shape arrays,
 depending on input.
+
+### position
+
+```js
+import { position } from 'points';
+const { x, y } = position( shape, 0.5, 1 );
+```
+
+Takes an existing shape array as the first argument, and
+an interval (a number from 0 to 1) as the second argument.
+The optional third argument takes a number above 0 but below
+180. This third argument is the accuracy (in degrees) used
+to calculate when a curve is *straight enough* to be
+considered a straight line when working out shape length.
+Returns an object that includes the `x` and `y` coordinates
+at the interval of the shape.
 
 ### remove
 
