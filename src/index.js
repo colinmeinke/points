@@ -4,6 +4,7 @@ import cubify from './cubify';
 import length from './length';
 import moveIndex from './moveIndex';
 import offset from './offset';
+import position from './position';
 import remove from './remove';
 import reverse from './reverse';
 import scale from './scale';
@@ -15,6 +16,7 @@ export {
   length,
   moveIndex,
   offset,
+  position,
   remove,
   reverse,
   scale,
