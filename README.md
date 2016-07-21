@@ -11,8 +11,8 @@ manipulating points.
 ```js
 const shape = [
   { x: 50, y: 30, moveTo: true },
-  { x: 50, y: 70, curve: { type: 'arc', rx: 20, ry: 20 }},
-  { x: 50, y: 30, curve: { type: 'arc', rx: 20, ry: 20 }},
+  { x: 50, y: 70, curve: { type: 'arc', rx: 20, ry: 20, sweepFlag: 1 }},
+  { x: 50, y: 30, curve: { type: 'arc', rx: 20, ry: 20, sweepFlag: 1 }},
 ];
 ```
 
