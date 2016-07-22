@@ -21,6 +21,62 @@ describe( 'position', () => {
     expect( position( shape, 0.25 )).toEqual({ x: 50, y: -15 });
   });
 
+  it( 'should calculate correct position on two point line with undeshoot', () => {
+    const shape = [
+      { x: 0, y: 0, moveTo: true },
+      { x: 0, y: 100 },
+    ];
+
+    expect( position( shape, -0.25 )).toEqual({ x: 0, y: -25 });
+  });
+
+  it( 'should calculate correct position on multi point line with undeshoot', () => {
+    const shape = [
+      { x: 50, y: -150, moveTo: true },
+      { x: -50, y: -50 },
+      { x: 50, y: 50 },
+    ];
+
+    const interval = -1.5;
+    const sideA = Math.sqrt( Math.pow( 100, 2 ) + Math.pow( 100, 2 ));
+    const sideB = Math.sqrt( Math.pow( 100, 2 ) + Math.pow( 100, 2 ));
+    const totalLength = sideA + sideB;
+    const undershoot = totalLength * Math.abs( interval );
+    const ratio = undershoot / sideA + 1;
+    const x = -50 + ( 100 * ratio );
+    const y = -50 + ( -100 * ratio );
+
+    expect( position( shape, interval )).toEqual({ x, y });
+  });
+
+  it( 'should calculate correct position on two point line with overshoot', () => {
+    const shape = [
+      { x: 0, y: 0, moveTo: true },
+      { x: 0, y: 100 },
+    ];
+
+    expect( position( shape, 1.25 )).toEqual({ x: 0, y: 125 });
+  });
+
+  it( 'should calculate correct position on multi point line with overshoot', () => {
+    const shape = [
+      { x: 50, y: -150, moveTo: true },
+      { x: -50, y: -50 },
+      { x: 50, y: 50 },
+    ];
+
+    const interval = 1.15;
+    const sideA = Math.sqrt( Math.pow( 100, 2 ) + Math.pow( 100, 2 ));
+    const sideB = Math.sqrt( Math.pow( 100, 2 ) + Math.pow( 100, 2 ));
+    const totalLength = sideA + sideB;
+    const overshoot = totalLength * interval - totalLength;
+    const ratio = overshoot / sideB + 1;
+    const x = -50 + ( 100 * ratio );
+    const y = -50 + ( 100 * ratio );
+
+    expect( position( shape, interval )).toEqual({ x, y });
+  });
+
   it( 'should calculate correct position on square', () => {
     const shape = [
       { x: 50, y: 50, moveTo: true },
