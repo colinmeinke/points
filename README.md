@@ -1,10 +1,10 @@
 # Points
 
 A specification for storing shape data in Javascript. Includes
-functions for adding, removing, reordering, converting and
-manipulating points.
+[functions](#functions) for adding, removing, reordering,
+converting and manipulating points.
 
-**4.1kb gzipped. No dependencies.**
+**4.4kb gzipped. No dependencies.**
 
 ## Example shape
 
@@ -15,6 +15,22 @@ const shape = [
   { x: 50, y: 30, curve: { type: 'arc', rx: 20, ry: 20, sweepFlag: 1 }},
 ];
 ```
+
+## Functions
+
+- [`add()`](#add) – add additional points to a shape
+- [`boundingBox()`](#boundingBox) – get a shape's bounding box and
+  center coordinates
+- [`cubify()`](#cubify) – convert shape's curves to cubic beziers
+- [`length()`](#length) – get a shape's length
+- [`moveIndex()`](#moveIndex) – change the starting point of a shape
+- [`offset()`](#offset) – offset a shape
+- [`position()`](#position) – find the coordinates and angle at a
+  specific point of a shape
+- [`remove()`](#remove) – remove unrequired points of a shape
+- [`reverse()`](#reverse) – reverse the order of points of a shape
+- [`rotate()`](#rotate) – rotate a shape
+- [`scale()`](#scale) – scale a shape
 
 ## Specification
 
@@ -86,7 +102,7 @@ be `0`.
 npm install points
 ```
 
-## Usage
+## Function usage
 
 ### add
 
