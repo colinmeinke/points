@@ -7,6 +7,7 @@ import offset from './offset';
 import position from './position';
 import remove from './remove';
 import reverse from './reverse';
+import rotate from './rotate';
 import scale from './scale';
 
 export {
@@ -19,5 +20,6 @@ export {
   position,
   remove,
   reverse,
+  rotate,
   scale,
 };

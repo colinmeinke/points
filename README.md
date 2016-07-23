@@ -209,6 +209,20 @@ the points.
 Returns a new shape array or an array of shape arrays,
 depending on input.
 
+### rotate
+
+```js
+import { rotate } from 'points';
+const newShape = rotate( shape, 45 );
+```
+
+Takes an existing shape array, or an array of shape arrays,
+as the first argument. Takes the clockwise angle of rotation
+as the second argument.
+
+Returns a new shape array or an array of shape arrays,
+depending on input.
+
 ### scale
 
 ```js
