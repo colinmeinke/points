@@ -169,7 +169,7 @@ depending on input.
 
 ```js
 import { position } from 'points';
-const { x, y } = position( shape, 0.5, 1 );
+const { angle, x, y } = position( shape, 0.5, 1 );
 ```
 
 Takes an existing shape array as the first argument, and
@@ -178,7 +178,8 @@ The optional third argument takes a number above 0 but below
 180. This third argument is the accuracy (in degrees) used
 to calculate when a curve is *straight enough* to be
 considered a straight line. Returns an object that includes
-the `x` and `y` coordinates at the interval of the shape.
+the `x` and `y` coordinates at the interval of the shape,
+and the `angle` of that point with the vertical.
 
 ### remove
 

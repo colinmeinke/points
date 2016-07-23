@@ -1,3 +1,4 @@
+import { angleFromSides } from './helpers';
 import cubify from './cubify';
 import { curvePoints } from './add';
 import { linearLength } from './length';
@@ -11,12 +12,7 @@ const angle = triangle => {
   const b = linearLength( bx, by, cx, cy );
   const c = linearLength( cx, cy, ax, ay );
 
-  const r = Math.acos(
-    ( Math.pow( a, 2 ) + Math.pow( c, 2 ) - Math.pow( b, 2 )) /
-    ( 2 * a * c )
-  );
-
-  return r * ( 180 / Math.PI );
+  return angleFromSides( a, b, c );
 };
 
 const curved = shape => shape.reduce(( c, { curve }) => curve ? true : c, false );
@@ -43,8 +39,8 @@ const decurve = ( shape, accuracy = 1 ) => {
 };
 
 const straight = ( x1, y1, cx1, cy1, x2, y2, cx2, cy2, accuracy ) => {
-  const t1 = [[ x1, y1 ], [ x2, y2 ], [ cx1, cy1 ]];
-  const t2 = [[ x2, y2 ], [ x1, y1 ], [ cx2, cy2 ]];
+  const t1 = [[ cx1, cy1 ], [ x2, y2 ], [ x1, y1 ]];
+  const t2 = [[ cx2, cy2 ], [ x1, y1 ], [ x2, y2 ]];
   return angle( t1 ) < accuracy && angle( t2 ) < accuracy;
 };
 

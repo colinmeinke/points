@@ -1,3 +1,12 @@
+const angleFromSides = ( a, b, c ) => {
+  const r = Math.acos(
+    ( Math.pow( a, 2 ) + Math.pow( b, 2 ) - Math.pow( c, 2 )) /
+    ( 2 * a * b )
+  );
+
+  return r * ( 180 / Math.PI );
+};
+
 const applyFuncToShapes = ( f, s, ...args ) => {
   if ( isShapeArray( s )) {
     return s.map( shape => f( shape, ...args ));
@@ -15,4 +24,10 @@ const numberAtInterval = ( a, b, interval ) => {
   return c === 0 ? a : ( a < b ? a + c * interval : a - c * interval );
 };
 
-export { applyFuncToShapes, getShapeArray, isShapeArray, numberAtInterval };
+export {
+  angleFromSides,
+  applyFuncToShapes,
+  getShapeArray,
+  isShapeArray,
+  numberAtInterval,
+};
