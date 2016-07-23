@@ -1,6 +1,5 @@
 import { applyFuncToShapes } from './helpers';
 import boundingBox from './boundingBox';
-import { linearLength } from './length';
 
 const rotatePoint = ( x, y, c, s, about ) => {
   const { x: offsetX, y: offsetY } = about;
