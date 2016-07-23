@@ -51,4 +51,22 @@ describe( 'boundingBox', () => {
 
     expect( boundingBox( shapes )).toEqual( expectedCoordinates );
   });
+
+  it( 'should return correct coordinates from circle', () => {
+    const shape = [
+      { x: 50, y: 30, moveTo: true },
+      { x: 50, y: 70, curve: { type: 'arc', rx: 20, ry: 20, sweepFlag: 1 }},
+      { x: 50, y: 30, curve: { type: 'arc', rx: 20, ry: 20, sweepFlag: 1 }},
+    ];
+
+    const expectedCoordinates = {
+      bottom: 70,
+      center: { x: 50, y: 50 },
+      left: 30,
+      right: 70,
+      top: 30,
+    };
+
+    expect( boundingBox( shape )).toEqual( expectedCoordinates );
+  });
 });
