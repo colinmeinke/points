@@ -40,10 +40,10 @@ const position = ( shape, interval, accuracy ) => {
 };
 
 const under = ( shape, desiredLength ) => {
-  const { x: x1, y: y1 } = shape[ 1 ];
-  const { x: x2, y: y2 } = shape[ 0 ];
+  const { x: x1, y: y1 } = shape[ 0 ];
+  const { x: x2, y: y2 } = shape[ 1 ];
   const segmentLength = linearLength( x1, y1, x2, y2 );
-  const segmentInterval = Math.abs( desiredLength ) / segmentLength + 1;
+  const segmentInterval = desiredLength / segmentLength;
   return { x1, y1, x2, y2, segmentInterval, segmentLength };
 };
 
