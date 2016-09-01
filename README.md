@@ -284,7 +284,7 @@ const scale = Points.scale;
 And if you just want to smash in a Javascript file you're
 also covered. Drop this in place ...
 
-[https://npmcdn.com/points/dist/points.min.js](https://npmcdn.com/points/dist/points.min.js)
+[https://unpkg.com/points/dist/points.min.js](https://unpkg.com/points/dist/points.min.js)
 
 Then access it on the `Points` global variable.
 
