@@ -12,7 +12,7 @@ const reversePoints = shape => {
       point.curve = { type: 'cubic', x1, y1, x2, y2 }
     }
 
-    c = curve
+    c = curve || null
 
     return point
   })
