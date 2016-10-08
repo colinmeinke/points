@@ -1,23 +1,23 @@
-import cubify from './cubify';
-import { applyFuncToShapes } from './helpers';
+import cubify from './cubify'
+import { applyFuncToShapes } from './helpers'
 
 const reversePoints = shape => {
-  let c;
+  let c
 
   return shape.reverse().map(({ x, y, curve }) => {
-    const point = { x, y };
+    const point = { x, y }
 
-    if ( c ) {
-      const { x1: x2, y1: y2, x2: x1, y2: y1 } = c;
-      point.curve = { type: 'cubic', x1, y1, x2, y2 };
+    if (c) {
+      const { x1: x2, y1: y2, x2: x1, y2: y1 } = c
+      point.curve = { type: 'cubic', x1, y1, x2, y2 }
     }
 
-    c = curve ? curve : null;
+    c = curve
 
-    return point;
-  });
-};
+    return point
+  })
+}
 
-const reverse = s => applyFuncToShapes( reversePoints, cubify( s ));
+const reverse = s => applyFuncToShapes(reversePoints, cubify(s))
 
-export default reverse;
+export default reverse

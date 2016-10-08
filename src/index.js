@@ -1,14 +1,14 @@
-import add from './add';
-import boundingBox from './boundingBox';
-import cubify from './cubify';
-import length from './length';
-import moveIndex from './moveIndex';
-import offset from './offset';
-import position from './position';
-import remove from './remove';
-import reverse from './reverse';
-import rotate from './rotate';
-import scale from './scale';
+import add from './add'
+import boundingBox from './boundingBox'
+import cubify from './cubify'
+import length from './length'
+import moveIndex from './moveIndex'
+import offset from './offset'
+import position from './position'
+import remove from './remove'
+import reverse from './reverse'
+import rotate from './rotate'
+import scale from './scale'
 
 export {
   add,
@@ -21,5 +21,5 @@ export {
   remove,
   reverse,
   rotate,
-  scale,
-};
+  scale
+}
