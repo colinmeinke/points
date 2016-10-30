@@ -62,12 +62,12 @@
     "build:umd": "npm run build:umd:dev && npm run build:umd:pro",
     "build:umd:dev": "webpack ./src/index.js ./dist/points.js --output-library Points --output-library-target umd --config ./webpack.config.babel.js",
     "build:umd:pro": "webpack -p ./src/index.js ./dist/points.min.js --output-library Points --output-library-target umd --config ./webpack.config.babel.js",
-    "clean": "rimraf lib dist",
     "commit": "git-cz",
     "fix": "standard --fix",
     "lint": "standard --verbose | snazzy",
-    "prepublish": "npm run clean && npm run build",
+    "prepublish": "npm run tidy && npm run build",
     "test": "mocha --compilers js:babel-core/register test/*.js",
+    "tidy": "rimraf lib dist",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
