@@ -5,12 +5,30 @@
     "url": "www.colinmeinke.com"
   },
   "babel": {
-    "plugins": [
-      "transform-object-rest-spread"
-    ],
-    "presets": [
-      "es2015"
-    ]
+    "env": {
+      "cjs": {
+        "plugins": [
+          "transform-object-rest-spread"
+        ],
+        "presets": [
+          "es2015"
+        ]
+      },
+      "umd": {
+        "plugins": [
+          "external-helpers",
+          "transform-object-rest-spread"
+        ],
+        "presets": [
+          [
+            "es2015",
+            {
+              "modules": false
+            }
+          ]
+        ]
+      }
+    }
   },
   "bugs": {
     "url": "https://github.com/colinmeinke/points/issues"
@@ -24,7 +42,7 @@
   "devDependencies": {
     "babel-cli": "^6.16.0",
     "babel-core": "^6.17.0",
-    "babel-loader": "^6.2.5",
+    "babel-plugin-external-helpers": "^6.18.0",
     "babel-plugin-transform-object-rest-spread": "^6.16.0",
     "babel-preset-es2015": "^6.16.0",
     "commitizen": "^2.8.6",
@@ -32,10 +50,14 @@
     "expect": "^1.20.2",
     "mocha": "^3.1.0",
     "rimraf": "^2.5.3",
+    "rollup": "^0.36.3",
+    "rollup-plugin-babel": "^2.6.1",
+    "rollup-plugin-commonjs": "^5.0.5",
+    "rollup-plugin-node-resolve": "^2.0.0",
+    "rollup-plugin-uglify": "^1.0.1",
     "semantic-release": "^4.3.5",
     "snazzy": "^5.0.0",
-    "standard": "^8.3.0",
-    "webpack": "^1.13.2"
+    "standard": "^8.3.0"
   },
   "keywords": [
     "add",
@@ -58,15 +80,15 @@
   "name": "points",
   "scripts": {
     "build": "npm run build:lib && npm run build:umd",
-    "build:lib": "babel src --out-dir lib",
+    "build:lib": "BABEL_ENV=cjs babel src --out-dir lib",
     "build:umd": "npm run build:umd:dev && npm run build:umd:pro",
-    "build:umd:dev": "webpack ./src/index.js ./dist/points.js --output-library Points --output-library-target umd --config ./webpack.config.babel.js",
-    "build:umd:pro": "webpack -p ./src/index.js ./dist/points.min.js --output-library Points --output-library-target umd --config ./webpack.config.babel.js",
+    "build:umd:dev": "BABEL_ENV=umd rollup -c",
+    "build:umd:pro": "NODE_ENV=production BABEL_ENV=umd rollup -c",
     "commit": "git-cz",
     "fix": "standard --fix",
     "lint": "standard --verbose | snazzy",
     "prepublish": "npm run tidy && npm run build",
-    "test": "mocha --compilers js:babel-core/register test/*.js",
+    "test": "BABEL_ENV=cjs mocha --compilers js:babel-core/register test/*.js",
     "tidy": "rimraf lib dist",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },

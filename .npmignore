@@ -1,4 +1,7 @@
 .gitignore
 .travis.yml
+npm-debug.log
+rollup.config.js
 src/
 test/
+yarn.lock
