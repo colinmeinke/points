@@ -1,18 +1,28 @@
 const moveIndex = (shape, offset) => {
-  const k = shape.length - 1
-  const c = shape[ 0 ]
-  const l = shape[ k ]
+  const s = [ ...shape ]
+  const k = s.length - 1
+  const c = s[ 0 ]
+  const l = s[ k ]
   const o = ((offset % k) + k) % k
+
+  delete s[ 0 ].moveTo
+
+  const nextShape = [
+    { x: s[ o ].x, y: s[ o ].y, moveTo: true },
+    ...s.splice(o + 1)
+  ]
 
   if (c.x === l.x && c.y === l.y) {
     return [
-      { x: shape[ o ].x, y: shape[ o ].y, moveTo: true },
-      ...shape.splice(o + 1),
-      ...shape.splice(1, o)
+      ...nextShape,
+      ...s.splice(1, o)
     ]
   }
 
-  return shape
+  return [
+    ...nextShape,
+    ...s.splice(o - 1, o)
+  ]
 }
 
 export default moveIndex

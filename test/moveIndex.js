@@ -136,12 +136,18 @@ test('`movieIndex` should handle moving index to curve point', () => {
   expect(moveIndex(shape, 1)).toEqual(expectedShape)
 })
 
-test('`movieIndex` should not move index if shape does not join', () => {
+test('`moveIndex` should also move index if shape does not join', () => {
   const shape = [
-    { x: 30, y: 40 },
+    { x: 30, y: 40, moveTo: true },
     { x: 40, y: 50 },
     { x: 50, y: 60 }
   ]
 
-  expect(moveIndex(shape, 1)).toEqual(shape)
+  const expectedShape = [
+    { x: 40, y: 50, moveTo: true },
+    { x: 50, y: 60 },
+    { x: 30, y: 40 },
+  ]
+
+  expect(moveIndex(shape, 1)).toEqual(expectedShape)
 })
