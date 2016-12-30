@@ -146,7 +146,7 @@ test('`moveIndex` should also move index if shape does not join', () => {
   const expectedShape = [
     { x: 40, y: 50, moveTo: true },
     { x: 50, y: 60 },
-    { x: 30, y: 40 },
+    { x: 30, y: 40 }
   ]
 
   expect(moveIndex(shape, 1)).toEqual(expectedShape)
