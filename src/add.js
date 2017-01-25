@@ -1,18 +1,21 @@
 import cubify from './cubify'
 import { numberAtInterval } from './helpers'
 
-const basicPoints = (a, b) => [{
-  x: numberAtInterval(a.x, b.x, 0.5),
-  y: numberAtInterval(a.y, b.y, 0.5)
-}, b]
+const linearPoints = (from, to) => [
+  {
+    x: numberAtInterval(from.x, to.x, 0.5),
+    y: numberAtInterval(from.y, to.y, 0.5)
+  },
+  to
+]
 
-const curvePoints = (a, b) => {
-  const { x1, y1, x2, y2 } = b.curve
+const curvedPoints = (from, to) => {
+  const { x1, y1, x2, y2 } = to.curve
 
-  const A = { x: a.x, y: a.y }
+  const A = { x: from.x, y: from.y }
   const B = { x: x1, y: y1 }
   const C = { x: x2, y: y2 }
-  const D = { x: b.x, y: b.y }
+  const D = { x: to.x, y: to.y }
   const E = { x: numberAtInterval(A.x, B.x, 0.5), y: numberAtInterval(A.y, B.y, 0.5) }
   const F = { x: numberAtInterval(B.x, C.x, 0.5), y: numberAtInterval(B.y, C.y, 0.5) }
   const G = { x: numberAtInterval(C.x, D.x, 0.5), y: numberAtInterval(C.y, D.y, 0.5) }
@@ -26,25 +29,36 @@ const curvePoints = (a, b) => {
   ]
 }
 
-const points = (a, b) => b.curve ? curvePoints(a, b) : basicPoints(a, b)
+const points = (from, to) => to.curve
+  ? curvedPoints(from, to)
+  : linearPoints(from, to)
 
 const addPoints = (shape, pointsRequired) => {
-  const s = [ ...shape ]
+  const nextShape = [ ...shape ]
 
-  for (let i = 1; i < s.length; i += 2) {
-    if (s.length >= pointsRequired) {
-      return s
+  for (let i = 1; i < nextShape.length;) {
+    if (nextShape.length === pointsRequired) {
+      return nextShape
     }
 
-    const [ a, b ] = points(s[ i - 1 ], s[ i ])
+    const to = nextShape[ i ]
 
-    s.splice(i, 1, a, b)
+    if (to.moveTo) {
+      i++
+    } else {
+      const from = nextShape[ i - 1 ]
+      const [ midPoint, replacementPoint ] = points(from, to)
+
+      nextShape.splice(i, 1, midPoint, replacementPoint)
+
+      i += 2
+    }
   }
 
-  return addPoints(s, pointsRequired)
+  return addPoints(nextShape, pointsRequired)
 }
 
 const add = (shape, pointsRequired) => addPoints(cubify(shape), pointsRequired)
 
-export { curvePoints }
+export { curvedPoints }
 export default add

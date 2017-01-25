@@ -96,3 +96,23 @@ test('`add` should add correct curve midpoint', () => {
 
   expect(add(shape, 3)).toEqual(expectedShape)
 })
+
+test('`add` should not add midpoint between a moveTo point', () => {
+  const shape = [
+    { x: 10, y: 10, moveTo: true },
+    { x: 10, y: 20 },
+    { x: 20, y: 10, moveTo: true },
+    { x: 20, y: 20 }
+  ]
+
+  const expectedShape = [
+    { x: 10, y: 10, moveTo: true },
+    { x: 10, y: 15 },
+    { x: 10, y: 20 },
+    { x: 20, y: 10, moveTo: true },
+    { x: 20, y: 15 },
+    { x: 20, y: 20 }
+  ]
+
+  expect(add(shape, 6)).toEqual(expectedShape)
+})

@@ -1,6 +1,6 @@
 import { angleFromSides } from './helpers'
 import cubify from './cubify'
-import { curvePoints } from './add'
+import { curvedPoints } from './add'
 import { linearLength } from './length'
 
 const angle = triangle => {
@@ -53,7 +53,7 @@ const straighten = (prevPoint, point, accuracy) => {
     return [ point ]
   }
 
-  const [ midPoint, lastPoint ] = curvePoints(prevPoint, point)
+  const [ midPoint, lastPoint ] = curvedPoints(prevPoint, point)
 
   return [
     ...straighten(prevPoint, midPoint, accuracy),
