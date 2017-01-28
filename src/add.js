@@ -34,10 +34,14 @@ const points = (from, to) => to.curve
   : linearPoints(from, to)
 
 const addPoints = (shape, pointsRequired) => {
+  if (isNaN(pointsRequired)) {
+    throw Error('`add` function must be passed a number as the second argument')
+  }
+
   const nextShape = [ ...shape ]
 
   for (let i = 1; i < nextShape.length;) {
-    if (nextShape.length === pointsRequired) {
+    if (nextShape.length >= pointsRequired) {
       return nextShape
     }
 

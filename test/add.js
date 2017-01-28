@@ -2,6 +2,16 @@
 
 import add from '../src/add'
 
+test('`add` should throw an error if not passed a second argument', () => {
+  const shape = [
+    { x: 0, y: 0, moveTo: true },
+    { x: 50, y: 25 },
+    { x: -10, y: -100 }
+  ]
+
+  expect(() => add(shape)).toThrow()
+})
+
 test('`add` should add correct number of extra points', () => {
   const shape = [
     { x: 0, y: 0, moveTo: true },
