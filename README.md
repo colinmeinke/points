@@ -4,6 +4,8 @@ A specification for storing shape data in Javascript. Includes
 [functions](#functions) for adding, removing, reordering,
 converting and manipulating points.
 
+If working with SVG you might find it well paired with [svg-points](https://github.com/colinmeinke/svg-points).
+
 **4.0kb gzipped. No dependencies.**
 
 ## Example shape
