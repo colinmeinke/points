@@ -1,7 +1,6 @@
 .gitignore
 .travis.yml
-npm-debug.log
 rollup.config.js
-src/
 test/
+webpack.config.babel.js
 yarn.lock
