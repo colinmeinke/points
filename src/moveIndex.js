@@ -1,3 +1,5 @@
+import { applyFuncToShapes } from './helpers'
+
 const countLinePoints = lines => lines.reduce((count, points) => (
   count + countPoints(points)
 ), 0)
@@ -14,7 +16,9 @@ const joinLines = lines => lines.reduce((shape, line) => (
   [ ...shape, ...line ]
 ), [])
 
-const moveIndex = (shape, offset) => {
+const moveIndex = (s, offset) => applyFuncToShapes(movePointsIndex, s, offset)
+
+const movePointsIndex = (shape, offset) => {
   const lines = splitLines(shape)
   const count = countLinePoints(lines)
   const normalisedOffset = ((offset % count) + count) % count
