@@ -1,6 +1,5 @@
-import { distance } from './helpers';
+import { distance, applyFuncToShapes } from './helpers';
 import moveIndex from './moveIndex';
-import { applyFuncToShapes } from './helpers';
 
 const autoIndexPoints = (point, p) => {
   let min = Number.MAX_SAFE_INTEGER;
