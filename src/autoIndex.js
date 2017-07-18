@@ -17,6 +17,6 @@ const autoIndexPoints = (point, p) => {
   return point;
 }
 
-const autoIndex = point = applyFuncToShapes(autoIndexPoints, point);
+const autoIndex = point => applyFuncToShapes(autoIndexPoints, point);
 
 export default autoIndex;
