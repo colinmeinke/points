@@ -1,7 +1,7 @@
 import { distance } from './helpers';
 import moveIndex from './moveIndex';
 
-export default function autoIndex (point, index, p) {
+export default function autoIndex (point, p) {
   let min = Number.MAX_SAFE_INTEGER;
   let minIdx;
   for (let i = 0; i < point.length; i++) {
