@@ -1,7 +1,8 @@
 import { distance } from './helpers';
 import moveIndex from './moveIndex';
+import { applyFuncToShapes } from './helpers';
 
-export default function autoIndex (point, p) {
+const autoIndexPoints = (point, p) => {
   let min = Number.MAX_SAFE_INTEGER;
   let minIdx;
   for (let i = 0; i < point.length; i++) {
@@ -16,3 +17,7 @@ export default function autoIndex (point, p) {
   }
   return point;
 }
+
+const autoIndex = point = applyFuncToShapes(autoIndexPoints, point);
+
+export default autoIndex;
