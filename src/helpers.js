@@ -24,8 +24,8 @@ const numberAtInterval = (a, b, interval) => {
   return c === 0 ? a : (a < b ? a + c * interval : a - c * interval)
 }
 
-const distance = ({x:ax,y:ay}, {x:bx,y:by}) => {
-  return Math.sqrt((ax - bx) * (ax - bx) + (ay - by) * (ay - by));
+const distance = ({x: ax, y: ay}, {x: bx, y: by}) => {
+  return Math.sqrt((ax - bx) * (ax - bx) + (ay - by) * (ay - by))
 }
 
 export {
