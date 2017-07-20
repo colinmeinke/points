@@ -35,7 +35,7 @@ const rotatePoints = (shape, angle, about) => shape.map(point => {
 })
 
 const rotate = (s, angle, origin) => {
-  const about = origin && origin.x !== undefined && origin.y !== undefined ? origin : boundingBox(s).center;
+  const about = origin && origin.x !== undefined && origin.y !== undefined ? origin : boundingBox(s).center
   return applyFuncToShapes(rotatePoints, s, angle, about)
 }
 
