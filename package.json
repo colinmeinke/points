@@ -100,7 +100,7 @@
     "shapes",
     "svg"
   ],
-  "license": "ISC",
+  "license": "MIT",
   "main": "cjs/index.js",
   "module": "modules/index.js",
   "name": "points",
