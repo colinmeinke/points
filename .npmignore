@@ -2,5 +2,4 @@
 .travis.yml
 rollup.config.js
 test/
-webpack.config.babel.js
 yarn.lock
