@@ -104,6 +104,10 @@
   "main": "cjs/index.js",
   "module": "modules/index.js",
   "name": "points",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/colinmeinke/points.git"
+  },
   "scripts": {
     "build": "npm run build:modules && npm run build:cjs && npm run build:umd",
     "build:cjs": "BABEL_ENV=cjs babel src --out-dir cjs",
@@ -119,8 +123,5 @@
     "tidy": "rimraf modules cjs dist",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/colinmeinke/points.git"
-  }
+  "version": "0.0.0-development"
 }
