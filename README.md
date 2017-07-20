@@ -6,7 +6,11 @@ converting and manipulating points.
 
 If working with SVG you might find it well paired with [svg-points](https://github.com/colinmeinke/svg-points).
 
-**4.0kb gzipped. No dependencies.**
+If you are looking to convert a SVG DOM node directly to points,
+then check out the `frameShape` function of
+[Wilderness DOM node](https://github.com/colinmeinke/wilderness-dom-node#readme).
+
+**4.0kb gzipped.**
 
 ## Example shape
 
