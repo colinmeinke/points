@@ -59,6 +59,9 @@
       "path": "node_modules/cz-conventional-changelog"
     }
   },
+  "dependencies": {
+    "svg-arc-to-cubic-bezier": "^3.1.3"
+  },
   "description": "A specification for storing shape data in Javascript. Includes functions for adding, removing, reordering and converting points",
   "devDependencies": {
     "babel-cli": "^6.24.1",

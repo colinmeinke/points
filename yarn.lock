@@ -4070,6 +4070,11 @@ supports-color@^3.1.2:
   dependencies:
     has-flag "^1.0.0"
 
+svg-arc-to-cubic-bezier@^3.1.3:
+  version "3.1.3"
+  resolved "https://registry.yarnpkg.com/svg-arc-to-cubic-bezier/-/svg-arc-to-cubic-bezier-3.1.3.tgz#7b5f76445310ef03238964c39ae7dbc761fda879"
+  integrity sha512-OyxEvzadllRxlvDiFBihKyl5He2jRvmRx/EyS5fzdz7OF+GF+6IDG9PxJLkyGViREmQMcRaNV92ZusXXoWMFaw==
+
 symbol-tree@^3.2.1:
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/symbol-tree/-/symbol-tree-3.2.2.tgz#ae27db38f660a7ae2e1c3b7d1bc290819b8519e6"

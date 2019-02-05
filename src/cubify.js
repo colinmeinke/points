@@ -1,4 +1,4 @@
-import arcToBezier from './arcToBezier'
+import arcToBezier from 'svg-arc-to-cubic-bezier'
 import { applyFuncToShapes } from './helpers'
 
 const cubifyShape = shape => {
