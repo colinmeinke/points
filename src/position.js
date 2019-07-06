@@ -1,6 +1,6 @@
 import decurve from './decurve'
-import length, { linearLength } from './length'
-import { angleFromSides, numberAtInterval } from './helpers'
+import length from './length'
+import { angleFromSides, numberAtInterval, linearLength } from './helpers'
 
 const angle = (x1, y1, x2, y2, a) => {
   if (x1 === x2) {

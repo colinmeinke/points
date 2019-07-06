@@ -1,4 +1,5 @@
 import decurve from './decurve'
+import { linearLength } from './helpers'
 
 const length = (shape, accuracy) => {
   const s = decurve(shape, accuracy)
@@ -13,9 +14,4 @@ const length = (shape, accuracy) => {
   }, 0)
 }
 
-const linearLength = (x1, y1, x2, y2) => Math.sqrt(
-  Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2)
-)
-
-export { linearLength }
 export default length

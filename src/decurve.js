@@ -1,7 +1,6 @@
-import { angleFromSides } from './helpers'
+import { angleFromSides, linearLength } from './helpers'
 import cubify from './cubify'
 import { curvedPoints } from './add'
-import { linearLength } from './length'
 
 const angle = triangle => {
   const [ ax, ay ] = triangle[ 0 ]
