@@ -123,7 +123,7 @@
     "prepublish": "npm run tidy && npm run build",
     "test": "jest",
     "tidy": "rimraf modules cjs dist",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+    "semantic-release": "semantic-release"
   },
   "version": "0.0.0-development"
 }
