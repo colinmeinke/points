@@ -18,8 +18,8 @@ test('`cubify` should return same shape with cubic beziers instead of arcs', () 
       curve: {
         type: 'cubic',
         x1: 80,
-        y1: 104.8528137423857,
-        x2: 100.14718625761431,
+        y1: 104.83617610223001,
+        x2: 100.16382389777,
         y2: 125
       }
     },
@@ -41,10 +41,10 @@ test('`cubify` should return same shape with cubic beziers instead of arcs', () 
       y: 125,
       curve: {
         type: 'cubic',
-        x1: 205.1471862576143,
+        x1: 205.16382389777002,
         y1: 80,
         x2: 185,
-        y2: 100.1471862576143
+        y2: 100.16382389776999
       }
     },
     {
@@ -53,8 +53,8 @@ test('`cubify` should return same shape with cubic beziers instead of arcs', () 
       curve: {
         type: 'cubic',
         x1: 185,
-        y1: 149.8528137423857,
-        x2: 205.1471862576143,
+        y1: 149.83617610222998,
+        x2: 205.16382389777,
         y2: 170
       }
     },
@@ -63,10 +63,10 @@ test('`cubify` should return same shape with cubic beziers instead of arcs', () 
       y: 125.00000000000001,
       curve: {
         type: 'cubic',
-        x1: 254.8528137423857,
+        x1: 254.83617610222998,
         y1: 170,
         x2: 275,
-        y2: 149.8528137423857
+        y2: 149.83617610223
       }
     },
     { x: 275, y: 80 },
@@ -87,10 +87,10 @@ test('`cubify` should return same shape with cubic beziers instead of arcs', () 
       y: 275,
       curve: {
         type: 'cubic',
-        x1: 104.8528137423857,
+        x1: 104.83617610223001,
         y1: 230,
         x2: 125,
-        y2: 250.1471862576143
+        y2: 250.16382389777
       }
     },
     { x: 125, y: 230 },
@@ -112,8 +112,8 @@ test('`cubify` should return same shape with cubic beziers instead of arcs', () 
       curve: {
         type: 'cubic',
         x1: 230,
-        y1: 205.1471862576143,
-        x2: 250.1471862576143,
+        y1: 205.16382389777002,
+        x2: 250.16382389777,
         y2: 185
       }
     },
@@ -122,10 +122,10 @@ test('`cubify` should return same shape with cubic beziers instead of arcs', () 
       y: 230,
       curve: {
         type: 'cubic',
-        x1: 299.8528137423857,
+        x1: 299.83617610223,
         y1: 185,
         x2: 320,
-        y2: 205.1471862576143
+        y2: 205.16382389777
       }
     },
     {
@@ -134,8 +134,8 @@ test('`cubify` should return same shape with cubic beziers instead of arcs', () 
       curve: {
         type: 'cubic',
         x1: 320,
-        y1: 254.8528137423857,
-        x2: 299.8528137423857,
+        y1: 254.83617610222998,
+        x2: 299.83617610223,
         y2: 275
       }
     },

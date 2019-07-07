@@ -59,7 +59,7 @@
     }
   },
   "dependencies": {
-    "svg-arc-to-cubic-bezier": "^3.1.4"
+    "svg-arc-to-cubic-bezier": "^3.2.0"
   },
   "description": "A specification for storing shape data in Javascript. Includes functions for adding, removing, reordering and converting points",
   "devDependencies": {
