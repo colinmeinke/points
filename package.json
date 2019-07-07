@@ -80,7 +80,8 @@
     "rollup-plugin-uglify": "^6.0.2",
     "semantic-release": "^15.13.18",
     "snazzy": "^8.0.0",
-    "standard": "^12.0.1"
+    "standard": "^12.0.1",
+    "svg-points": "^6.0.1"
   },
   "jest": {
     "testRegex": "(/test/.*|\\.test)\\.js$"

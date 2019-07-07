@@ -27,8 +27,11 @@ const decurve = (shape, accuracy = 1) => {
   s.map((point, i) => {
     if (point.curve) {
       const prevPoint = s[ i - 1 ]
-      straighten(prevPoint, point, accuracy)
-        .map(p => d.push(p))
+
+      if (prevPoint.x !== point.x || prevPoint.y !== point.y) {
+        straighten(prevPoint, point, accuracy)
+          .map(p => d.push(p))
+      }
     } else {
       d.push(point)
     }
