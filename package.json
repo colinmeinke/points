@@ -103,6 +103,7 @@
     "svg"
   ],
   "license": "MIT",
+  "sideEffects": false,
   "main": "cjs/index.js",
   "module": "modules/index.js",
   "name": "points",
