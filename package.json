@@ -103,8 +103,10 @@
     "svg"
   ],
   "license": "MIT",
+  "sideEffects": false,
   "main": "cjs/index.js",
   "module": "modules/index.js",
+  "types": "index.d.ts",
   "name": "points",
   "repository": {
     "type": "git",
